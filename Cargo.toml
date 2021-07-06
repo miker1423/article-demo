@@ -1,0 +1,35 @@
+[package]
+name = "article-demo"
+version = "0.1.0"
+edition = "2018"
+
+[features]
+default =  [ "k64" ]
+k64 = [ "k64f_hal"]
+stm32 = [ "stm32f4xx-hal" ]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+embedded-hal = { version = "0.2.5", features = ["unproven"] }
+cortex-m = "0.7.2"
+nb = "1.0.0"
+cortex-m-rt = "0.6.13"
+panic-halt = "0.2.0"
+ssd1306 = "0.5.2"
+embedded-graphics = "0.7.0"
+heapless = "0.7.1"
+
+[dependencies.stm32f4xx-hal]
+version = "0.9.0"
+features = ["rt", "stm32f407"]
+optional = true
+
+[dependencies.k64f_hal]
+version = "0.1.0"
+path = "../../Source/k64_hal"
+optional = true
+
+[dependencies.modbus_nostd]
+path = "../modbus_nostd"
+version = "0.1.0"
