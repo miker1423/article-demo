@@ -26,12 +26,12 @@ pub fn config_board() -> (
 
     let gpio_a = p.GPIOA.split();
     let uart_pins = (
-      gpio_a.pa0.into_alternate_af8(),
-      gpio_a.pa1.into_alternate_af8()
+      gpio_a.pa2.into_alternate_af7(),
+      gpio_a.pa3.into_alternate_af7()
     );
     let config = serial::config::Config::default().baudrate(9600.bps());
-    let serial = serial::Serial::uart4(
-        p.UART4,
+    let serial = serial::Serial::usart2(
+        p.USART2,
         uart_pins,
         config,
         clocks

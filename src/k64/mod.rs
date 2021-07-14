@@ -21,7 +21,7 @@ pub fn config_board() -> (
         )
     );
     let config = uart::Config::new(
-        115200.into(),
+        9600.into(),
         uart::Parity::None,
         uart::WordLength::DataBits8,
         uart::StopBits::Stop1
